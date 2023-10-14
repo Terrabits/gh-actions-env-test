@@ -7,8 +7,6 @@ jobs:
       MY_VARIABLE: "default"
     steps:
       - name: set environment variable
-        env:
-          MY_VARIABLE: "yaml"
-        run:  echo ${{ env.MY_VARIABLE }}
+        run:  echo "MY_VARIABLE=updated" >> $env:GITHUB_ENV
       - name: read environment variable
         run:  echo ${{ env.MY_VARIABLE }}
