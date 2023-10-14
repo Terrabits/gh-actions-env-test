@@ -7,6 +7,6 @@ jobs:
       MY_VARIABLE: "default"
     steps:
       - name: set environment variable
-        run:  echo "MY_VARIABLE=updated" >> $env:GITHUB_ENV
+        run:  echo "MY_VARIABLE=updated with spaces" >> $env:GITHUB_ENV
       - name: read environment variable
         run:  echo ${{ env.MY_VARIABLE }}
