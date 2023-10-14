@@ -1,5 +1,7 @@
 name: windows env variable test
-on: push
+on:
+  workflow_dispatch:
+    inputs: null
 jobs:
   Test:
     runs-on: windows-latest
