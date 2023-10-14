@@ -1,16 +1,14 @@
 name: windows env variable test
 on: push
-env:
-  MY_VARIABLE: "default"
 jobs:
   Test:
     runs-on: windows-latest
+    env:
+      MY_VARIABLE: "default"
     steps:
       - name: set environment variable
         env:
           MY_VARIABLE: "yaml"
-        run:  $Env:MY_VARIABLE = "powershell"
+        run:  echo ${{ env.MY_VARIABLE }}
       - name: read environment variable
-        run:  |
-          echo Powershell says MY_VARIABLE="$Env:MY_VARIABLE"
-          echo Github     says MY_VARIABLE="${{ env.MY_VARIABLE }}"
+        run:  echo ${{ env.MY_VARIABLE }}
