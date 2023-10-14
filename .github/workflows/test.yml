@@ -1,14 +1,15 @@
 name: windows env variable test
 on: push
-vars:
-  MY_VARIABLE: "default"
+
 jobs:
   Test:
     runs-on: windows-latest
+    vars:
+      MY_VARIABLE: "default"
     steps:
       - name: set variable
         vars:
           MY_VARIABLE: "updated"
-        run:  true
-      - name: read environment variable
-        run:  echo MY_VARIABLE="${{ vars.MY_VARIABLE }}"
+        run:  echo MY_VARIABLE = ${{ vars.MY_VARIABLE }}
+      - name: read variable
+        run:  echo MY_VARIABLE = ${{ vars.MY_VARIABLE }}
