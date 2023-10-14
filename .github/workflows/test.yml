@@ -9,4 +9,4 @@ jobs:
       - name: set environment variable
         run:  echo "MY_VARIABLE=updated with spaces" >> $env:GITHUB_ENV
       - name: read environment variable
-        run:  echo ${{ env.MY_VARIABLE }}
+        run:  echo "${{ env.MY_VARIABLE }}"
